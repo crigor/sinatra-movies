@@ -1,0 +1,6 @@
+%ul
+  - @torrents.each do |torrent|
+    %li
+      %a{ :href => torrent.link, :target => '_blank' } 
+        = torrent.title
+
