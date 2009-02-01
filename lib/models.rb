@@ -1,4 +1,3 @@
-DataMapper.setup(:default, "postgres://localhost/movies_development")
 class Torrent
   include DataMapper::Resource
   property :id, Integer, :serial => true

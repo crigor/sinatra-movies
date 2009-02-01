@@ -4,6 +4,10 @@ require 'dm-core'
 require 'lib/models'
 require 'rfeedparser'
 
+configure do
+  require File.join(File.dirname(__FILE__), 'config', 'movies.rb')
+end
+
 get '/update' do
   Torrent.update
   torrents = Torrent.all

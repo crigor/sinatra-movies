@@ -1,0 +1,1 @@
+DataMapper.setup(:default, "postgres://localhost/movies_development")
