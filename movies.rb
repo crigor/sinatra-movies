@@ -3,15 +3,20 @@ require 'sinatra'
 require 'dm-core'
 require 'lib/models'
 require 'rfeedparser'
+require 'rack-flash'
+
+use Rack::Session::Cookie
+use Rack::Flash
 
 configure do
   require File.join(File.dirname(__FILE__), 'config', 'movies.rb')
 end
 
 get '/update' do
-  Torrent.update
+  count = Torrent.update
   torrents = Torrent.all
-  torrents.size.to_s
+  flash[:notice] = "#{count} new movies added"
+  redirect '/'
 end
 
 get '/' do
